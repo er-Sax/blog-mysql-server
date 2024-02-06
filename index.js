@@ -15,7 +15,9 @@ const storage = multer.diskStorage({
   },
   filename: function (req, file, cb) {
     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9)
-    cb(null, file.fieldname + '-' + uniqueSuffix + '.jpg')
+    const fileName = file.fieldname + '-' + uniqueSuffix + '.jpg'
+    console.log('Generated file name:', fileName) // Logging the generated file name
+    cb(null, fileName)
   }
 })
 
@@ -35,10 +37,6 @@ app.use('/api/posts/', postRoutes)
 app.use('/api/auth/', authRoutes)
 app.use('/api/user/', userRoutes)
 
-// Use PORT provided in environment or default to 3000
-const port = process.env.PORT || 3000;
-
-// Listen on `port` and 0.0.0.0
-app.listen(port, "0.0.0.0", function () {
+app.listen(8800, () => {
   console.log('listening')
-});
+})
