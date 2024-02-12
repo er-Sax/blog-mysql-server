@@ -9,7 +9,7 @@ const app = express()
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({ credentials: true, origin: true }))
-dotenv.config()
+require("dotenv").config()
 
 const azureStorage = new MulterAzureStorage({
   connectionString:
