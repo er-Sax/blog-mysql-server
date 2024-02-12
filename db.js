@@ -1,6 +1,6 @@
 import mysql from 'mysql2';
 import dotenv from 'dotenv'
-require("dotenv").config();
+dotenv.config()
 
 export const db = mysql.createConnection({
    host: 'monorail.proxy.rlwy.net',
